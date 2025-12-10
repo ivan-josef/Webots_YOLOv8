@@ -1,0 +1,24 @@
+[0.849s] Invoking command in '/home/ivan/Webots_YOLOv8/src/Webots_YOLOv8': PYTHONPATH=/home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Webots_YOLOv8 build --build-base /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/build install --record /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/install.log --single-version-externally-managed install_data
+[1.070s] running egg_info
+[1.070s] writing ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/PKG-INFO
+[1.070s] writing dependency_links to ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/dependency_links.txt
+[1.071s] writing entry points to ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/entry_points.txt
+[1.071s] writing requirements to ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/requires.txt
+[1.071s] writing top-level names to ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/top_level.txt
+[1.073s] reading manifest file '../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/SOURCES.txt'
+[1.073s] writing manifest file '../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info/SOURCES.txt'
+[1.074s] running build
+[1.074s] running build_py
+[1.074s] copying Webots_YOLOv8/yolo_simulation.py -> /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/build/lib/Webots_YOLOv8
+[1.074s] running install
+[1.074s] running install_lib
+[1.075s] copying /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/build/lib/Webots_YOLOv8/yolo_simulation.py -> /home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages/Webots_YOLOv8
+[1.076s] byte-compiling /home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages/Webots_YOLOv8/yolo_simulation.py to yolo_simulation.cpython-310.pyc
+[1.076s] running install_data
+[1.076s] running install_egg_info
+[1.078s] removing '/home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages/Webots_YOLOv8-0.0.1-py3.10.egg-info' (and everything under it)
+[1.078s] Copying ../../build/Webots_YOLOv8/Webots_YOLOv8.egg-info to /home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages/Webots_YOLOv8-0.0.1-py3.10.egg-info
+[1.079s] running install_scripts
+[1.097s] Installing finder script to /home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/Webots_YOLOv8
+[1.098s] writing list of installed files to '/home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/install.log'
+[1.136s] Invoked command in '/home/ivan/Webots_YOLOv8/src/Webots_YOLOv8' returned '0': PYTHONPATH=/home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/Webots_YOLOv8/install/Webots_YOLOv8/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/Webots_YOLOv8 build --build-base /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/build install --record /home/ivan/Webots_YOLOv8/build/Webots_YOLOv8/install.log --single-version-externally-managed install_data

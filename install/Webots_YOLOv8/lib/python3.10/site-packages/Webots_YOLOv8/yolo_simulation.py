@@ -12,6 +12,7 @@ class YoloSimulacao(Node):
     def __init__(self):
         super().__init__('teste_yolo_sim')
         self.get_logger().info('>> MODO TESTE VISUAL (YOLO) <<')
+        self.window_name = "detection window"
 
         # 1. Carrega IA
         self.model = ri.model
@@ -43,7 +44,7 @@ class YoloSimulacao(Node):
             debug_msg = self.bridge.cv2_to_imgmsg(inference_frame, "bgr8")
             self.debug_pub.publish(debug_msg)
 
-            cv2.imshow("detection window", inference_frame)
+            cv2.imshow(self.window_name, inference_frame)
             cv2.waitKey(1)
         except Exception as e:
             self.get_logger().error(f'Erro: {e}')
