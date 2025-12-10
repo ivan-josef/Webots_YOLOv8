@@ -1,97 +1,83 @@
-    # Pipeline de Visão Computacional e Controle de Robôs com Webots + ROS 2 + YOLOv8
+# Computer Vision and Robot Control Pipeline with Webots + ROS 2 + YOLOv8
 
-Este projeto demonstra um pipeline de visão computacional e controle de robôs integrado, utilizando a simulação **Webots** e o framework **ROS 2**.  
-Ele permite que um robô virtual se mova e use uma câmera para detectar objetos com o modelo **YOLOv8** em tempo real.
+This project demonstrates an integrated computer vision and robot control pipeline using the **Webots** simulation and the **ROS 2** framework.
+It allows a virtual robot to move and use a camera to detect objects with the **YOLOv8** model in real-time.
 
----
+## Features
 
-## Funcionalidades
+- **Realistic Simulation**: Uses the **Webots** robotics simulator to create a virtual environment and a mobile robot, **AUREA**.
+- **ROS 2 Communication**: Establishes a bidirectional connection between the Webots simulation and the ROS 2 network, enabling sensor data flow and control command transmission.
+- **Object Detection with YOLOv8**: A dedicated ROS 2 node processes the robot's camera video stream to detect objects and draw bounding boxes.
+- **Teleop Control**: Controls the robot's movement and camera pan using keyboard commands.
+- **Real-Time Visualization**: The processed image is published to a window opened with cv2 
 
-- **Simulação Realista**: Utiliza o simulador de robótica **Webots** para criar um ambiente virtual e um robô móvel, o **AUREA**.  
-- **Comunicação ROS 2**: Estabelece uma conexão bidirecional entre a simulação Webots e a rede ROS 2, permitindo o fluxo de dados dos sensores e o envio de comandos de controle.  
-- **Detecção de Objetos com YOLOv8**: Um nó ROS 2 dedicado processa o fluxo de vídeo da câmera do robô para detectar objetos e desenhar caixas delimitadoras (*bounding boxes*).  
-- **Controle de Teleop**: Controla o movimento do robô e o pan da câmera usando comandos de teclado.  
-- **Visualização em Tempo Real**: A imagem processada é publicada em um tópico para visualização externa com o `rqt_image_view`.  
+## Technologies and Dependencies
 
----
+- **ROS 2 Humble**: Robotic communication middleware.
+- **Webots**: Robotics simulation environment.
+- **Python 3.10**: Main language for the nodes.
+- **YOLOv8 & Ultralytics**: Object detection framework.
+- **OpenCV & cv_bridge**: Image processing and ROS ↔ OpenCV integration.
 
-## Tecnologias e Dependências
+## Project Structure
 
-- **ROS 2 Humble**: Middleware de comunicação robótica.  
-- **Webots**: Ambiente de simulação de robótica.  
-- **Python 3.10**: Linguagem principal dos nós.  
-- **YOLOv8 & Ultralytics**: Framework de detecção de objetos.  
-- **OpenCV & cv_bridge**: Processamento de imagem e integração ROS ↔ OpenCV.  
+The project consists of two main ROS 2 packages:
 
----
+- **`my_package`**
+  - Contains the robot driver for Webots (`my_robot_driver.py`) and configuration files.
+  - Also contains the robot control node (`keyboard_teleop.py`).
+  - Manages the connection with the simulation.
 
-## Estrutura do Projeto
+- **`Webots_YOLOv8`**
+  - Contains the computer vision node (`yolo_simulation.py`).
+  - Uses YOLOv8 for object detection.
+  - Publishes bounding boxes and processed images.
 
-O projeto possui dois pacotes principais ROS 2:
+## How to Run
 
-- **`my_package`**  
-  - Contém o driver do robô para Webots (`my_robot_driver.py`) e arquivos de configuração.
-  - Contém também o nó de controle do robô (`keyboard_teleop.py`)
-  - Gerencia a conexão com a simulação.  
+### Prerequisites
+- **Webots** installed (version compatible with ROS 2 Humble).
+- **ROS 2 Humble** installed and configured.
+- A **ROS 2 workspace** (e.g., `~/ros2_ws`).
 
-- **`object_finder`**  
-  - Contém o nó de visão computacional (`connecting_and_showing.py`).  
-  - Utiliza o YOLOv8 para detecção de objetos.  
-  - Publica as *bounding boxes* e imagens processadas.  
 
----
-
-## Como Executar
-
-### Pré-requisitos
-- **Webots** instalado (versão compatível com ROS 2 Humble).  
-- **ROS 2 Humble** instalado e configurado.  
-- Um **workspace ROS 2** (ex.: `~/ros2_ws`).  
-
----
-
-### 1. Clonar o Repositório
-Dentro da pasta `src` do seu workspace ROS 2:
+### 1. Clone the Repository
+Inside the `src` folder of your ROS 2 workspace:
 ```bash
 cd ~/ros2_ws/src
-git clone <URL_DO_REPOSITORIO>
+git clone <REPOSITORY_URL>
 ```
 
-### 2. Adicionar o Modelo YOLOv8
-Baixe seu modelo **best.pt** e salve-o na pasta raiz do pacote object_finder.
+### 2. Add the YOLOv8 Model
+Download your best.pt model and save it in the model folder of the Webots_YOLOv8 package.
 
-### 3. Compile o Projeto
+### 3. Build de project 
 ```bash
-cd ~/ros2_ws
+cd ~/Webots_YOLOv8
 colcon build
 ```
 
-### 4. Configurar o ambiente
+### 4. Setup the Environment 
 ```bash
 source install/setup.bash
 ```
 
-### 5. Executar o pipeline
-Abra 3 terminais e execute:
-- Terminal 1 – Driver do Robô e Simulação
-  ```bash
-  ros2 launch my_package my_robot_driver
-  ```
-- Terminal 2 – Nó de Detecção
-  ```bash
-  ros2 run object_finder finder
-  ```
-- Terminal 3 – Controle de Teleop
-  ```bash
-  ros2 run my_package keyboard_controller
-  ```
+### 5. Run the pipeline 
+open 3 terminals and run 
 
-  ### 6. Visualizar as detecções
-  ```bash
-  ros2 run rqt_image_view rqt_image_view 
-  ```
-  E selecione o tópico ***processed_image_topic*** para ver as caixas de detecção em tempo real.
+- Terminal 1 - robot driver and simulation
+```bash
+ros2 launch my_package robot_launch.py
+```
 
-  ## 🤝 Contribuição
+- Terminal 2 - detection node
+```bash
+ros2 launch Webots_YOLOv8 vision.launch.py
+```
 
-  Sinta-se à vontade para contribuir
+- Terminal 3 - teleop control
+```bash
+ros2 run my_package keyboard_controller
+```
+
+
