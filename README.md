@@ -42,11 +42,7 @@ The project consists of two main ROS 2 packages:
 
 
 ### 1. Clone the Repository
-Inside the `src` folder of your ROS 2 workspace:
-```bash
-cd ~/ros2_ws/src
-git clone <REPOSITORY_URL>
-```
+Clone the repository for your workspace 
 
 ### 2. Add the YOLOv8 Model
 Download your best.pt model and save it in the model folder of the Webots_YOLOv8 package.
