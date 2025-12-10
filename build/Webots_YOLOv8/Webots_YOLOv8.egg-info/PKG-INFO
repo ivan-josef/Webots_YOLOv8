@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: Webots-YOLOv8
+Version: 0.0.1
+Summary: Pacote de detecção de objetos para a EDROM
+Home-page: UNKNOWN
+Author: IVANj
+License: BSD
+Platform: UNKNOWN
+
+Este programa detecta bola, robôs e outros elementos do campo de futebol de robôs.
+

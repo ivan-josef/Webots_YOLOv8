@@ -1,0 +1,6 @@
+source;share/Webots_YOLOv8/hook/pythonpath.ps1
+source;share/Webots_YOLOv8/hook/pythonpath.dsv
+source;share/Webots_YOLOv8/hook/pythonpath.sh
+source;share/Webots_YOLOv8/hook/ament_prefix_path.ps1
+source;share/Webots_YOLOv8/hook/ament_prefix_path.dsv
+source;share/Webots_YOLOv8/hook/ament_prefix_path.sh

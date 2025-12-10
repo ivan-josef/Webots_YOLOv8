@@ -1,0 +1,205 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/robotstadium/protos/RobotstadiumSoccerField.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/RobocupSoccerBall.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2557069467409149 0.8157288956743951 -0.5188451851470444 0.3562258066324983
+  position -2.239874178853285 0.762600763063759 0.9516099732906154
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RobotstadiumSoccerField {
+}
+RobocupSoccerBall {
+  translation -0.1041379522774717 -1.92 0.06967823199364785
+  rotation 0 -1 0 1.4876870207287824
+}
+Robot {
+  translation 4.09531e-11 9.16138e-09 0.159707
+  rotation -0.9999997712995463 -0.0002864340338101145 0.0006126633653926319 5.9451215220551914e-08
+  children [
+    DEF CAR_BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.2 0.1 0.05
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.702196938069662e-11
+        axis 0 1 0
+        anchor 0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "MOTOR_1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 0.06 0
+        rotation 0.9999999999999998 9.755353364589783e-09 -9.755313195778936e-09 1.5707953071795862
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.638689267087102e-11
+        axis 0 1 0
+        anchor 0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "MOTOR_2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 -0.06 0
+        rotation 1 -2.388352578540041e-10 2.38836062038672e-10 1.5707996938995745
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.5063070087273037e-11
+        axis 0 1 0
+        anchor -0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "MOTOR_3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.06 0
+        rotation 1 1.5712415886608688e-10 -1.571247841123649e-10 1.5708003061004252
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.5932005717015062e-11
+        axis 0 1 0
+        anchor -0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "MOTOR_4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 -0.06 0
+        rotation 1 -2.3451562269390005e-10 2.345164123338799e-10 1.5707996938995745
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    Solid {
+      translation 0 0 0.29
+      children [
+        DEF ROBOT_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.53
+            radius 0.01
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position 6.600175776071203e-19
+            axis 0 0 1
+            anchor 0 0 0.11
+          }
+          device [
+            RotationalMotor {
+              name "MOTOR_CAM"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0 0.25
+            children [
+              DEF CAM_BODY Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.01
+                }
+              }
+              Camera {
+                name "CAM"
+                width 1080
+                height 720
+              }
+              Display {
+                name "CAM_OVERLAY_DISPLAY"
+                width 1080
+                height 720
+              }
+            ]
+            boundingObject USE CAM_BODY
+            physics Physics {
+            }
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE ROBOT_BODY
+      physics Physics {
+      }
+    }
+  ]
+  name "AUREA"
+  boundingObject USE CAR_BODY
+  physics Physics {
+  }
+  controller "<extern>"
+}

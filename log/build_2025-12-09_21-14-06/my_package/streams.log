@@ -1,0 +1,48 @@
+[1.300s] Invoking command in '/home/ivan/Webots_YOLOv8/src/my_package': PYTHONPATH=/home/ivan/Webots_YOLOv8/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/ivan/Webots_YOLOv8/build/my_package/build install --record /home/ivan/Webots_YOLOv8/build/my_package/install.log --single-version-externally-managed install_data
+[1.632s] running egg_info
+[1.633s] creating ../../build/my_package/my_package.egg-info
+[1.633s] writing ../../build/my_package/my_package.egg-info/PKG-INFO
+[1.634s] writing dependency_links to ../../build/my_package/my_package.egg-info/dependency_links.txt
+[1.634s] writing entry points to ../../build/my_package/my_package.egg-info/entry_points.txt
+[1.634s] writing requirements to ../../build/my_package/my_package.egg-info/requires.txt
+[1.634s] writing top-level names to ../../build/my_package/my_package.egg-info/top_level.txt
+[1.634s] writing manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[1.637s] reading manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[1.638s] adding license file 'LICENSE'
+[1.638s] writing manifest file '../../build/my_package/my_package.egg-info/SOURCES.txt'
+[1.639s] running build
+[1.639s] running build_py
+[1.639s] creating /home/ivan/Webots_YOLOv8/build/my_package/build
+[1.639s] creating /home/ivan/Webots_YOLOv8/build/my_package/build/lib
+[1.639s] creating /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package
+[1.639s] copying my_package/keyboard_teleop.py -> /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package
+[1.640s] copying my_package/__init__.py -> /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package
+[1.640s] copying my_package/my_robot_driver.py -> /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package
+[1.640s] running install
+[1.640s] running install_lib
+[1.641s] creating /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package
+[1.641s] copying /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package/keyboard_teleop.py -> /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package
+[1.641s] copying /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package/__init__.py -> /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package
+[1.641s] copying /home/ivan/Webots_YOLOv8/build/my_package/build/lib/my_package/my_robot_driver.py -> /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package
+[1.642s] byte-compiling /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package/keyboard_teleop.py to keyboard_teleop.cpython-310.pyc
+[1.643s] byte-compiling /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package/__init__.py to __init__.cpython-310.pyc
+[1.643s] byte-compiling /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package/my_robot_driver.py to my_robot_driver.cpython-310.pyc
+[1.644s] running install_data
+[1.644s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/ament_index
+[1.644s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/ament_index/resource_index
+[1.644s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/ament_index/resource_index/packages
+[1.644s] copying resource/my_package -> /home/ivan/Webots_YOLOv8/install/my_package/share/ament_index/resource_index/packages
+[1.645s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/launch
+[1.645s] copying launch/robot_launch.py -> /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/launch
+[1.645s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/worlds
+[1.645s] copying worlds/training_simulation.wbt -> /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/worlds
+[1.645s] creating /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/resource
+[1.645s] copying resource/my_robot.urdf -> /home/ivan/Webots_YOLOv8/install/my_package/share/my_package/resource
+[1.646s] copying package.xml -> /home/ivan/Webots_YOLOv8/install/my_package/share/my_package
+[1.646s] running install_egg_info
+[1.648s] Copying ../../build/my_package/my_package.egg-info to /home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages/my_package-0.0.0-py3.10.egg-info
+[1.649s] running install_scripts
+[1.676s] Installing keyboard_teleop script to /home/ivan/Webots_YOLOv8/install/my_package/lib/my_package
+[1.677s] Installing my_robot_driver script to /home/ivan/Webots_YOLOv8/install/my_package/lib/my_package
+[1.677s] writing list of installed files to '/home/ivan/Webots_YOLOv8/build/my_package/install.log'
+[1.731s] Invoked command in '/home/ivan/Webots_YOLOv8/src/my_package' returned '0': PYTHONPATH=/home/ivan/Webots_YOLOv8/build/my_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ivan/Webots_YOLOv8/install/my_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_package build --build-base /home/ivan/Webots_YOLOv8/build/my_package/build install --record /home/ivan/Webots_YOLOv8/build/my_package/install.log --single-version-externally-managed install_data

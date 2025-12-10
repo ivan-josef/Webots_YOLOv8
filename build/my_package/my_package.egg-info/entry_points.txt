@@ -1,0 +1,4 @@
+[console_scripts]
+keyboard_teleop = my_package.keyboard_teleop:main
+my_robot_driver = my_package.my_robot_driver:main
+
