@@ -80,5 +80,6 @@ ros2 launch Webots_YOLOv8 vision.launch.py
 ros2 run my_package keyboard_controller
 ```
 
+![](https://github.com/ivan-josef/Webots_YOLOv8/blob/main/image/Screenshot%20from%202025-12-09%2022-13-23.png)
 
 
