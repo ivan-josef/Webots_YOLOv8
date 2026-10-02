@@ -1,0 +1,34 @@
+# Parametros do vision_node (YOLOv8 + pipeline Bit-Bots).
+# Todos podem ser alterados em tempo de execucao, por exemplo:
+#   ros2 param set /vision_node hsv.field_min "[48, 100, 70]"
+#   ros2 param set /vision_node pipeline.column_step 2
+vision_node:
+  ros__parameters:
+    # Estes valores tambem podem ser sobrescritos por argumentos do launch.
+    enable_yolo: true              # false permite testar apenas a segmentacao
+    use_legacy_segmentation: false # algoritmo anterior, somente para comparacao visual
+
+    pipeline:
+      process_width: 540           # largura de processamento (camera = 1080); 0 = sem reducao
+      column_step: 4               # 1 coluna a cada N na varredura da fronteira
+      min_obstacle_area: 150       # px^2 na resolucao de processamento
+      line_samples: 2000           # amostras aleatorias para pontos de linha
+      head_tilted_up: false        # true = varredura de baixo para cima
+      fuse_with_yolo: true         # descarta obstaculos ja explicados pelo YOLO
+      publish_line_points_relative: true
+      output_frame: base_link
+      camera_info_topic: /AUREA/camera_optical_frame/camera_info
+      line_max_range: 10.0         # metros
+
+    # Faixas HSV (OpenCV: H 0-179, S/V 0-255). Por padrao sao derivadas de
+    # recursos/green_pixels.csv e dos limites padrao do branco.
+    # Descomente para fixar valores manualmente (red usa hue circular: min > max).
+    # hsv:
+    #   field_min: [47, 115, 79]
+    #   field_max: [66, 213, 209]
+    #   white_min: [0, 0, 207]
+    #   white_max: [179, 37, 255]
+    #   red_min: [170, 100, 80]
+    #   red_max: [10, 255, 255]
+    #   blue_min: [100, 100, 80]
+    #   blue_max: [130, 255, 255]

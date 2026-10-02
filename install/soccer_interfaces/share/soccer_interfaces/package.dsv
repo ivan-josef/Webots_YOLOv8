@@ -1,8 +1,4 @@
-source;share/soccer_interfaces/hook/cmake_prefix_path.ps1
-source;share/soccer_interfaces/hook/cmake_prefix_path.dsv
-source;share/soccer_interfaces/hook/cmake_prefix_path.sh
 source;share/soccer_interfaces/local_setup.bash
 source;share/soccer_interfaces/local_setup.dsv
-source;share/soccer_interfaces/local_setup.ps1
 source;share/soccer_interfaces/local_setup.sh
 source;share/soccer_interfaces/local_setup.zsh

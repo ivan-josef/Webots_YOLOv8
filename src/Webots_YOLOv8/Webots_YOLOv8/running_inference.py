@@ -1,53 +1,50 @@
 #!/usr/bin/env python3
-# coding=utf-8
+"""Carregamento e inferencia do modelo YOLO sem efeitos colaterais no import."""
 
-from ultralytics import YOLO
 import os
-import cv2
-import numpy as np
 import time
-from ament_index_python.packages import get_package_share_directory
-
-size = 320
 
 try:
-    package_share_path = get_package_share_directory('Webots_YOLOv8')
-    model_base_path = os.path.join(package_share_path, 'modelo')
-    model_path = os.path.join(model_base_path, 'best.pt') # Carrega o modelo .pt padrão
-    print(f"Tentando carregar o modelo de: {model_path}")
-    if not os.path.exists(model_path):
-        print(f"!!!!!! ATENÇÃO: O arquivo do modelo não foi encontrado em {model_path}. !!!!!!")
+    from ultralytics import YOLO
+except ImportError as exc:  # Permite executar somente o pipeline de segmentacao.
+    YOLO = None
+    _ULTRALYTICS_IMPORT_ERROR = exc
+else:
+    _ULTRALYTICS_IMPORT_ERROR = None
 
-    model = YOLO(model_path)
+IMAGE_SIZE = 320
 
-except Exception as e:
-    print(f"Ocorreu um erro ao carregar o modelo: {e}")
+
+def load_model(model_path):
+    """Carrega explicitamente um modelo, produzindo erros faceis de diagnosticar."""
+    if YOLO is None:
+        raise RuntimeError(
+            "O pacote Python 'ultralytics' nao esta instalado. "
+            "Instale-o ou inicie o no com enable_yolo:=false."
+        ) from _ULTRALYTICS_IMPORT_ERROR
+    if not os.path.isfile(model_path):
+        raise FileNotFoundError(f'Modelo YOLO nao encontrado: {model_path}')
+    return YOLO(model_path)
+
 
 def detect_model(model, current_frame):
-    """
-    Realiza a inferência em um frame de imagem usando o modelo carregado.
-    """
+    """Executa a inferencia; sem modelo, devolve uma deteccao vazia."""
     if model is None:
-        print("Modelo não carregado, pulando inferência.")
         return [], [], [], current_frame
 
-    start_time = time.time()
-    
-    results = model.predict(source=current_frame,
-                            conf=0.45,
-                            imgsz=size,
-                            max_det=10,
-                            verbose=False,
-                            iou = 0.5)
-    
+    start_time = time.perf_counter()
+    results = model.predict(
+        source=current_frame,
+        conf=0.45,
+        imgsz=IMAGE_SIZE,
+        max_det=10,
+        verbose=False,
+        iou=0.5,
+    )
+
     classes = results[0].boxes.cls.tolist()
     scores = results[0].boxes.conf.tolist()
     boxes = results[0].boxes.xywh.tolist()
-    
-    finish_time = time.time()
-    fps_inf = 1 / (finish_time - start_time)
-    
+    _ = time.perf_counter() - start_time
     inference_frame = results[0].plot()
-
     return classes, scores, boxes, inference_frame
-
